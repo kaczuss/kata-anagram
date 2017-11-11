@@ -17,8 +17,7 @@ class AnagramAnalyzerTest {
 
 		Set<Anagrams> anagrams = anagramAnalyzer.anagrams();
 
-		//FIXME why it fails?
-		// assertThat(anagrams).contains(new Anagrams(listOf3Anagrams));
+		assertThat(anagrams).contains(new Anagrams(listOf3Anagrams));
 		assertThat(anagrams).containsExactly(new Anagrams(listOf3Anagrams));
 	}
 }

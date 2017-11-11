@@ -1,5 +1,6 @@
 package pl.swiftcoding.kata.anagram;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -56,7 +57,9 @@ final class Anagrams {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(words);
+		char[] characters = words.iterator().next().characters();
+		Arrays.sort(characters);
+		return Arrays.hashCode(characters);
 	}
 
 	@Override
