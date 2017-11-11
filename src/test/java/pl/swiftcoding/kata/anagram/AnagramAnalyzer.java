@@ -3,6 +3,7 @@ package pl.swiftcoding.kata.anagram;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 class AnagramAnalyzer {
@@ -36,7 +37,13 @@ class AnagramAnalyzer {
 	}
 
 
-	Set<Anagrams> anagrams() {
+	Set<Anagrams> allSets() {
 		return anagrams;
+	}
+
+	Set<Anagrams> anagrams() {
+		return anagrams.stream()
+			.filter(a -> a.wordsCount() > 1)
+			.collect(Collectors.toCollection(LinkedHashSet::new));
 	}
 }

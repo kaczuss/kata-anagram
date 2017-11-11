@@ -68,4 +68,8 @@ final class Anagrams {
 			.add("anagrams", words)
 			.toString();
 	}
+
+	int wordsCount() {
+		return words.size();
+	}
 }
