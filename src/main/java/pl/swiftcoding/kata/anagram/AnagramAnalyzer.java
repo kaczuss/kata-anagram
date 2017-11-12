@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-
 class AnagramAnalyzer {
 
 	private final Set<Anagrams> anagrams = new LinkedHashSet<>();
