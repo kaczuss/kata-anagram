@@ -8,13 +8,17 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-class AnagramAnalyzerTest {
+class BasicAnagramAnalyzerTest {
+
+	protected BasicAnagramAnalyzer getSut(List<String> words) {
+		return new BasicAnagramAnalyzer(words);
+	}
 
 	@Test
 	void shouldFineAnagramsInSimpleList() {
 		List<String> listOf3Anagrams = List.of("abab", "baba", "abba");
 
-		AnagramAnalyzer anagramAnalyzer = new AnagramAnalyzer(listOf3Anagrams);
+		BasicAnagramAnalyzer anagramAnalyzer = getSut(listOf3Anagrams);
 
 		Set<Anagrams> anagrams = anagramAnalyzer.allSets();
 
@@ -26,7 +30,7 @@ class AnagramAnalyzerTest {
 	void shouldSplitWordsByAnagrams() {
 		List<String> list = List.of("abab", "cac", "acc", "baba", "abba", "BB");
 
-		AnagramAnalyzer anagramAnalyzer = new AnagramAnalyzer(list);
+		BasicAnagramAnalyzer anagramAnalyzer = getSut(list);
 
 		Set<Anagrams> anagrams = anagramAnalyzer.allSets();
 
@@ -39,7 +43,7 @@ class AnagramAnalyzerTest {
 	void shouldIgnoreNoAnagrams() {
 		List<String> list = List.of("abab", "cac", "acc", "baba", "abba", "BB");
 
-		AnagramAnalyzer anagramAnalyzer = new AnagramAnalyzer(list);
+		BasicAnagramAnalyzer anagramAnalyzer = getSut(list);
 
 		Set<Anagrams> anagrams = anagramAnalyzer.anagrams();
 
